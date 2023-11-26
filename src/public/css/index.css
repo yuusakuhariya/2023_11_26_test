@@ -1,0 +1,24 @@
+.contact-form__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+}
+
+.contact-form__heading {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.form {
+    margin: 0 auto;
+    text-align: center;
+    width: 70%;
+}
+
+.form__group {
+    text-align: left;
+    display: flex;
+    margin: 20px 0;
+    width: 100%;
+}
+
