@@ -11,8 +11,8 @@ class ContactController extends Controller
     //     return view('index');
     // }
 
-    public function confirm()
+    public function thanks()
     {
-        return view('confirm');
+        return view('thanks');
     }
 }

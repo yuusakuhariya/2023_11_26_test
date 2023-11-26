@@ -9,3 +9,57 @@
     text-align: center;
 }
 
+.form__button {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.confirm-table__inner {
+    width: 100%;
+} 
+.confirm-table__row {
+    height: 100px;
+}
+
+.confirm-table__header {
+    padding: 15px;
+    width: 30%;
+    font-weight: bold;
+}
+.confirm-table__text-inner {
+    display: flex;
+    padding: 15px;
+}
+.confirm-table__text{
+    padding: 15px;
+}
+input[name="content"] {
+    height: 200px;
+}
+
+input {
+    height: 50px;
+    width: 100%;
+    border: none;
+}
+input[type="name"] {
+    width: 15%;
+}
+
+.form__button-submit {
+    padding: 10px;
+    width: 30%;
+    height: 50px;
+    border: none;
+    border-radius: 3px;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+}
+.reset__button {
+    margin-top: 5px;
+    text-align: center;
+}
+.reset__button-submit {
+    color: #000;
+}

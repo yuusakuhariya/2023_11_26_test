@@ -17,10 +17,8 @@
             <table class="confirm-table__inner">
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">お名前</th>
-                    <td class="confirm-table__text">
+                    <td class="confirm-table__text-inner">
                         <input type="name" name="first__name" value="" />
-                    </td>
-                    <td class="confirm-table__text">
                         <input type="name" name="last__name" value="" />
                     </td>
                 </tr>

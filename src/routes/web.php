@@ -16,4 +16,4 @@ use App\Http\Controllers\ContactController;
 */
 
 // Route::get('/', [ContactController::class, 'index']);
-Route::get('/', [ContactController::class, 'confirm']);
+Route::get('/', [ContactController::class, 'thanks']);
