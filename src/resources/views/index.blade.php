@@ -64,7 +64,7 @@
             <div class="form__group-item">
                 <div class="form__input-inner">
                     <input name="email" type="email" value="">
-                    <div class="form__group-item__inner-example">例）test@xxample.com</div>
+                    <div class="form__group-item__inner-example">例）test@example.com</div>
                 </div>
             </div>
         </div>
