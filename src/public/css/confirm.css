@@ -46,6 +46,18 @@ input[type="name"] {
     width: 15%;
 }
 
+input[name="opinion"] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+input[name="opinion"]:hover {
+    max-width: 40%;
+    height: 160px;
+    position: absolute;
+    background-color: rgb(145, 149, 149);
+}
+
 .form__button-submit {
     padding: 10px;
     width: 30%;

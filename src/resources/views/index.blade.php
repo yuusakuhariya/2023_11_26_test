@@ -44,12 +44,12 @@
             <div class="form__group-gender__flame">
                 <div class="form__group-item">
                     <div class="form__input-radio">
-                        <label for="male"><input name="gender" type="radio" value="男性">男性</label>
+                        <label for="male"><input name="gender" type="radio" value="1" checked>男性</label>
                     </div>
                 </div>
                 <div class="form__group-item">
                     <div class="form__input-radio">
-                        <label for="female"><input name="gender" type="radio" value="女性">女性</label>
+                        <label for="female"><input name="gender" type="radio" value="2">女性</label>
                     </div>
                 </div>
             </div>

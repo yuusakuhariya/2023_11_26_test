@@ -60,26 +60,33 @@
                 <th class="table-column__email">メールアドレス</th>
                 <th class="table-column__content">ご意見</th>
             </tr>
+            @foreach( $contacts as $contact )
             <tr class="table-row">
                 <td class="table-column__id">
-                    <input type="id" name="id" value="" />
+                    <!-- <input type="id" name="id" value="" /> -->
+                    {{ $contact['id'] }}
                 </td>
                 <td class="table-column__fulname">
-                    <input type="name" name="fullname" value="" />
+                    <!-- <input type="name" name="fullname" value="" /> -->
+                    {{ $contact['fullname'] }}
                 </td>
                 <td class="table-column__gender">
-                    <input type="text" name="gender" value="" />
+                    <!-- <input type="text" name="gender" value="" /> -->
+                    {{ $contact['gender'] }}
                 </td>
                 <td class="table-column__email">
-                    <input type="email" name="email" value="" />
+                    <!-- <input type="email" name="email" value="" /> -->
+                    {{ $contact['email'] }}
                 </td>
-                <td class="table-column__content">
-                    <input type="text" name="content" value="" />
+                <td class="table-column__opinion">
+                    <!-- <input type="text" name="content" value="" /> -->
+                    {{ $contact['opinion'] }}
                 </td>
                 <td class="delete-button">
                     <button class="delete-button__submit" type="submit">削除</button>
                 </td>
             </tr>
+            @endforeach
         </table>
     </form>
 </div>
