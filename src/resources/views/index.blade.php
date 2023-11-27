@@ -10,21 +10,32 @@
     <div class="contact-form__heading">
         <h2>お問い合わせ</h2>
     </div>
-    <form class="form" action="">
+    <form class="form" action="/contacts/confirm" method="post">
+        @csrf
         <div class="form__group">
             <div class="form__group-title">お名前<span class="required__mark">※</span></div>
             <div class="form__group-name__flame">
                 <div class="form__group-item">
                     <div class="form__input-inner">
-                        <input name="first__name" type="name" value="">
+                        <input name="first_name" type="name" value="">
                         <div class="form__group-item__inner-example">例）山田</div>
                     </div>
                 </div>
+                <div class="name__error">
+                    @error('first_name')
+                        {{ $message }}
+                    @enderror
+                </div>
                 <div class="form__group-item">
                     <div class="form__input-inner">
-                        <input name="last__name" type="name" value="">
+                        <input name="last_name" type="name" value="">
                         <div class="form__group-item__inner-example">例）太郎</div>
                     </div>
+                </div>
+                <div class="name__error">
+                    @error('last_name')
+                        {{ $message }}
+                    @enderror
                 </div>
             </div>
         </div>
@@ -33,17 +44,20 @@
             <div class="form__group-gender__flame">
                 <div class="form__group-item">
                     <div class="form__input-radio">
-                        <input name="gender" type="radio" value="">
-                        <div class="form__group-item__inner-gender">男性</div>
+                        <label for="male"><input name="gender" type="radio" value="男性">男性</label>
                     </div>
                 </div>
                 <div class="form__group-item">
                     <div class="form__input-radio">
-                        <input name="gender" type="radio" value="">
-                        <div class="form__group-item__inner-gender">女性</div>
+                        <label for="female"><input name="gender" type="radio" value="女性">女性</label>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="name__error">
+            @error('gender')
+                {{ $message }}
+            @enderror
         </div>
         <div class="form__group">
             <div class="form__group-title">メールアドレス<span class="required__mark">※</span></div>
@@ -54,23 +68,39 @@
                 </div>
             </div>
         </div>
+        <div class="name__error">
+            @error('email')
+                {{ $message }}
+            @enderror
+        </div>
         <div class="form__group">
             <div class="form__group-title">郵便番号<span class="required__mark">※</span></div>
             <div class="form__group-item">
                 <div class="form__input-inner">
-                    <label class="post__logo">〒<input name="postcard" type="text" value=""></label>
+                    <label class="post__logo">〒<input type="text" name="postcode" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','address','address');"></label>
+                    
                     <div class="form__group-item__inner-example">例）123-4567</div>
                 </div>
             </div>
+        </div>
+        <div class="name__error">
+            @error('postcode')
+                {{ $message }}
+            @enderror
         </div>
         <div class="form__group">
             <div class="form__group-title">住所<span class="required__mark">※</span></div>
             <div class="form__group-item">
                 <div class="form__input-inner">
-                    <input name="address" type="text" value="">
+                    <input type="text" name="address" size="60">
                     <div class="form__group-item__inner-example">例）東京都渋谷区千駄ヶ谷1-2-3</div>
                 </div>
             </div>
+        </div>
+        <div class="name__error">
+            @error('address')
+                {{ $message }}
+            @enderror
         </div>
         <div class="form__group">
             <div class="form__group-title">建物名</div>
@@ -84,11 +114,19 @@
         <div class="form__group">
             <div class="form__group-title">ご意見<span class="required__mark">※</span></div>
             <div class="form__input-textarea">
-                <textarea name="content" value=""></textarea>
+                <textarea name="opinion" value=""></textarea>
             </div>
+        </div>
+        <div class="name__error">
+            @error('opinion')
+                {{ $message }}
+            @enderror
         </div>
         <div class="form__button">
             <button class="form__button-submit" type="submit">確認</button>
+        </div>
+        <div class="reset__button">
+            <a class="reset__button-submit" href="/">リセット</a>
         </div>
     </form>
 </div>
