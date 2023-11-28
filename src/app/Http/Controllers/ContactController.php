@@ -59,6 +59,13 @@ class ContactController extends Controller
     }
 
 
+    public function destroy(Request $request)
+    {
+        Contact::find($request->id)->delete();
+
+        return redirect('/contacts/manage');
+    }
+
     // session作成 分からない
     // public function postSes(Request $request)
     // {

@@ -46,16 +46,18 @@ input[type="name"] {
     width: 15%;
 }
 
-input[name="opinion"] {
+textarea {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
+    height: 50px;
+    width: 50%;
+    border: none;
 }
-input[name="opinion"]:hover {
+textarea:hover {
     max-width: 40%;
-    height: 160px;
+    height: 80px;
     position: absolute;
-    background-color: rgb(145, 149, 149);
 }
 
 .form__button-submit {

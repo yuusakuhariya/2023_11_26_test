@@ -15,45 +15,47 @@
     <form class="form" action="">
         <div class="contact-form__inner">
             <div class="contact-form__group">
-                <div class="contact-form__group-fullname">
-                    <div class="contact-form__title">お名前</div>
-                    <input type="name" name="name" value="" />
-                </div>
+                <div class="contact-form__title">お名前</div>
+                    <input class="input-name" type="name" name="name" value="" />
                 <div class="contact-form__group-gender">
-                    <div class="contact-form__title">性別</div>
-                    <input type="radio" name="gender" value="" />
-                        <span>全て</span>
-                    <input type="radio" name="gender" value="" />
-                        <span>男性</span>
-                    <input type="radio" name="gender" value="" />
-                        <span>女性</span>
+                    <div class="title__gender">性別</div>
+                        <input class="input-radio" type="radio" name="gender" value="" />
+                    <div class="title__gender">全て</div>
+                        <input class="input-radio" type="radio" name="gender" value="" />
+                    <div  class="title__gender">男性</div>
+                        <input class="input-radio" type="radio" name="gender" value="" />
+                    <div class="title__gender">女性</div>
                 </div>
             </div>
             <div class="contact-form__group">
                 <div class="contact-form__title">登録日</div>
-                <input type="date" name="from" placeholder="from_date" />
+                <input class="input-save" type="date" name="from" placeholder="from_date" />
                     <span>~</span>
-                <input type="date" name="until" placeholder="until_date" />
+                <input class="input-save" type="date" name="until" placeholder="until_date" />
             </div>
             <div class="contact-form__group">
                 <div class="contact-form__title">メールアドレス</div>
-                <input type="email" name="email" value="" />
+                <input class="input-email" type="email" name="email" value="" />
+            </div>
+            <div class="form__button">
+                <button class="form__button-submit" type="submit">検索</button>
+            </div>
+            <div class="reset__button">
+                <a class="reset__button-submit" href="/">修正する</a>
             </div>
         </div>
-        <div class="form__button">
-            <button class="form__button-submit" type="submit">検索</button>
-        </div>
-        <div class="reset__button">
-            <a class="reset__button-submit" href="/">修正する</a>
-        </div>
+        
     </form>
     <div class="peag">
         <div class="peag1"></div>
         <div class="peag2"></div>
     </div>
-    <form class="form__table">
+
+    <form class="form__table" action="/contacts/delete" method="post">
+        @method('DELETE')
+        @csrf
         <table class="table-inner">
-            <tr class="table-row">
+            <tr class="table-row__title">
                 <th class="table-column__id">ID</th>
                 <th class="table-column__fullname">お名前</th>
                 <th class="table-column__gender">性別</th>
@@ -61,29 +63,29 @@
                 <th class="table-column__content">ご意見</th>
             </tr>
             @foreach( $contacts as $contact )
-            <tr class="table-row">
+            <tr class="table-row__save">
                 <td class="table-column__id">
-                    <!-- <input type="id" name="id" value="" /> -->
-                    {{ $contact['id'] }}
+                    <input class="id" type="id" name="id" value="{{ $contact['id'] }}">
+                    <!-- <input type="hidden" name="id" value="{{ $contact['id'] }}"> -->
                 </td>
-                <td class="table-column__fulname">
-                    <!-- <input type="name" name="fullname" value="" /> -->
-                    {{ $contact['fullname'] }}
+                <td class="table-column__fullname">
+                    <input class="name" type="name" name="fullname" value="{{ $contact['fullname'] }}">
+                    <!-- <input type="hidden" name="id" value="{{ $contact['fullname'] }}"> -->
                 </td>
                 <td class="table-column__gender">
-                    <!-- <input type="text" name="gender" value="" /> -->
-                    {{ $contact['gender'] }}
+                    <input class="gender" type="text" name="gender" value="{{ $contact['gender'] }}">
+                    <!-- <input type="hidden" name="id" value="{{ $contact['gender'] }}"> -->
                 </td>
                 <td class="table-column__email">
-                    <!-- <input type="email" name="email" value="" /> -->
-                    {{ $contact['email'] }}
+                    <input class="email" type="email" name="email" value="{{ $contact['email'] }}">
+                    <!-- <input type="hidden" name="id" value="{{ $contact['email'] }}"> -->
                 </td>
                 <td class="table-column__opinion">
-                    <!-- <input type="text" name="content" value="" /> -->
-                    {{ $contact['opinion'] }}
+                    <input class="opinion" type="text" name="opinion" maxlength="25" value="{{ $contact['opinion'] }}">
+                    <!-- <input type="hidden" name="id" value="{{ $contact['opinion'] }}"> -->
                 </td>
-                <td class="delete-button">
-                    <button class="delete-button__submit" type="submit">削除</button>
+                <td class="delete__button">
+                    <button class="delete__button-submit" type="submit">削除</button>
                 </td>
             </tr>
             @endforeach

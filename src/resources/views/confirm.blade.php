@@ -57,13 +57,14 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">ご意見</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="opinion" value=" {{ $contacts['opinion'] }} " />
+                        <!-- <input type="text" name="opinion" cols="25" value=" {{ $contacts['opinion'] }} " /> -->
+                        <textarea name="opinion" cols="25">{{ $contacts['opinion'] }}</textarea>
                     </td>
                 </tr>
             </table>
         </div>
         <div class="form__button">
-            <button class="form__button-submit" type="submit">確認</button>
+            <button class="form__button-submit" type="submit">送信</button>
         </div>
         <div class="reset__button">
             <a class="reset__button-submit" href="/">修正する</a>
