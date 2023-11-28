@@ -41,14 +41,16 @@
                 <button class="form__button-submit" type="submit">検索</button>
             </div>
             <div class="reset__button">
-                <a class="reset__button-submit" href="/">修正する</a>
+                <a class="reset__button-submit" href="/contacts/manage">修正する</a>
             </div>
         </div>
         
     </form>
     <div class="peag">
         <div class="peag1"></div>
-        <div class="peag2"></div>
+        <div class="pagination">
+            {{ $contacts->links() }}
+        </div>
     </div>
 
     <form class="form__table" action="/contacts/delete" method="post">
@@ -66,23 +68,19 @@
             <tr class="table-row__save">
                 <td class="table-column__id">
                     <input class="id" type="id" name="id" value="{{ $contact['id'] }}">
-                    <!-- <input type="hidden" name="id" value="{{ $contact['id'] }}"> -->
+                    <input class="id" type="hidden" name="id" value="{{ $contact['id'] }}">
                 </td>
                 <td class="table-column__fullname">
                     <input class="name" type="name" name="fullname" value="{{ $contact['fullname'] }}">
-                    <!-- <input type="hidden" name="id" value="{{ $contact['fullname'] }}"> -->
                 </td>
                 <td class="table-column__gender">
                     <input class="gender" type="text" name="gender" value="{{ $contact['gender'] }}">
-                    <!-- <input type="hidden" name="id" value="{{ $contact['gender'] }}"> -->
                 </td>
                 <td class="table-column__email">
                     <input class="email" type="email" name="email" value="{{ $contact['email'] }}">
-                    <!-- <input type="hidden" name="id" value="{{ $contact['email'] }}"> -->
                 </td>
                 <td class="table-column__opinion">
                     <input class="opinion" type="text" name="opinion" maxlength="25" value="{{ $contact['opinion'] }}">
-                    <!-- <input type="hidden" name="id" value="{{ $contact['opinion'] }}"> -->
                 </td>
                 <td class="delete__button">
                     <button class="delete__button-submit" type="submit">削除</button>

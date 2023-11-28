@@ -15,7 +15,7 @@ class ContactController extends Controller
 
     public function manage()
     {
-        $contacts = Contact::get();
+        $contacts = Contact::paginate(4);
 
         return view('manage', ['contacts' => $contacts]);
     }
