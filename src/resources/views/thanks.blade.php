@@ -13,7 +13,7 @@
         <h2>ご利用ありがとうございます</h2>
     </div>
     <div class="form__button">
-        <button class="form__button-submit" type="submit">トップページへ</button>
+        <a class="form__button-submit" href="/">トップページへ</a>
     </div>
 </form>
 

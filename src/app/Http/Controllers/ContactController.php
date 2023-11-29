@@ -15,7 +15,7 @@ class ContactController extends Controller
 
     public function manage()
     {
-        $contacts = Contact::paginate(4);
+        $contacts = Contact::paginate(2);
 
         return view('manage', ['contacts' => $contacts]);
     }
@@ -58,13 +58,37 @@ class ContactController extends Controller
         return view('thanks');
     }
 
-
+    // 削除機能
     public function destroy(Request $request)
     {
         Contact::find($request->id)->delete();
 
         return redirect('/contacts/manage');
     }
+
+
+    // 検索機能
+    // public function search(Request $request)
+    // {
+    //     $fullname = $request->input('fullname');
+    //     $keyword = $request->input('keyword');
+
+    //     $contacts = Contact::FullnameSearch($fullname)->ContactSearch($keyword)->get();
+
+    //     return view('manage', ['contacts' => $contacts]);
+    // }
+
+    public function search(Request $request)
+    {
+        $fullname = $request->input('fullname');
+
+        $contacts = Contact::FullnameSearch($fullname)->paginate(2);
+
+        return view('manage', ['contacts' => $contacts]);
+    }
+
+
+
 
     // session作成 分からない
     // public function postSes(Request $request)

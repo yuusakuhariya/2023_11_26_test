@@ -12,11 +12,12 @@
     <div class="contact-form__heading">
         <h2>管理システム</h2>
     </div>
-    <form class="form" action="">
+    <form class="form" action="/contacts/search" method="get">
+        @csrf
         <div class="contact-form__inner">
             <div class="contact-form__group">
                 <div class="contact-form__title">お名前</div>
-                    <input class="input-name" type="name" name="name" value="" />
+                    <input class="input-name" type="name" name="fullname" value="{{ old('fullname') }}" />
                 <div class="contact-form__group-gender">
                     <div class="title__gender">性別</div>
                         <input class="input-radio" type="radio" name="gender" value="" />
@@ -46,12 +47,9 @@
         </div>
         
     </form>
-    <div class="peag">
-        <div class="peag1"></div>
         <div class="pagination">
             {{ $contacts->links() }}
         </div>
-    </div>
 
     <form class="form__table" action="/contacts/delete" method="post">
         @method('DELETE')
