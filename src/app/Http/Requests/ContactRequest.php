@@ -35,7 +35,23 @@ class ContactRequest extends FormRequest
         ];
     }
 
-    // 郵便番号は全角の場合は自動で半角に変換
+    // // 郵便番号は全角の場合は自動で半角に変換
+    // protected function prepareForValidation()
+    // {
+    //     // 入力データから郵便番号の値を習得
+    //     $postcode = $this->input('postcode');
+
+    //     // mb_convert_kana を使用して「郵便番号」値を変換
+    //     // 'as' 引数は変換モード (全角から半角) を指定
+    //     $convertedPostcode = mb_convert_kana($postcode, 'as');
+
+    //     // 変更した「郵便番号」値をリクエストデータにマージして戻す
+    //     $this->merge([
+    //         'postcode' => $convertedPostcode,
+    //     ]);
+    // }
+
+    // 上記の短縮形
     protected function prepareForValidation()
     {
         $this->merge([

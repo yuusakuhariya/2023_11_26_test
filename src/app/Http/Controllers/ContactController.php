@@ -3,24 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+//ページネーション指定？
+// use Illuminate\Pagination\Paginator;
+
 use App\Http\Requests\ContactRequest;
 use App\Models\Contact;
 
 class ContactController extends Controller
 {
+    // indexビューへの表示
     public function index()
     {
         return view('index');
     }
 
+
+    // manageビューへの表示（変数contactを送っている）
+    // Contactクラスを使ってpaginateも表示
     public function manage()
     {
-        $contacts = Contact::paginate(2);
+        $contacts = Contact::paginate(5);
 
         return view('manage', ['contacts' => $contacts]);
     }
 
 
+    // フォーム送信時のconfirmの表示（バリデーション表示）
     public function confirm(ContactRequest $request)
     {
 
@@ -39,6 +48,7 @@ class ContactController extends Controller
     }
 
 
+    // データベースへ保存機能
     public function store(Request $request)
     {
         $fullname = $request->input('first_name') . ' ' . $request->input('last_name');
@@ -58,6 +68,7 @@ class ContactController extends Controller
         return view('thanks');
     }
 
+
     // 削除機能
     public function destroy(Request $request)
     {
@@ -67,22 +78,16 @@ class ContactController extends Controller
     }
 
 
-    // 検索機能
-    // public function search(Request $request)
-    // {
-    //     $fullname = $request->input('fullname');
-    //     $keyword = $request->input('keyword');
-
-    //     $contacts = Contact::FullnameSearch($fullname)->ContactSearch($keyword)->get();
-
-    //     return view('manage', ['contacts' => $contacts]);
-    // }
-
+    // 検索機能（名前、メールアドレス、日付範囲検索、性別）
     public function search(Request $request)
     {
         $fullname = $request->input('fullname');
+        $email = $request->input('email');
+        $from = $request->input('from');
+        $until = $request->input('until');
+        $gender = $request->input('gender');
 
-        $contacts = Contact::FullnameSearch($fullname)->paginate(2);
+        $contacts = Contact::FullnameSearch($fullname)->EmailSearch($email)->DateSearch($from, $until)->GenderSearch($gender)->paginate(5);
 
         return view('manage', ['contacts' => $contacts]);
     }

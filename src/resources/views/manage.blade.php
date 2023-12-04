@@ -22,9 +22,9 @@
                     <div class="title__gender">性別</div>
                         <input class="input-radio" type="radio" name="gender" value="" />
                     <div class="title__gender">全て</div>
-                        <input class="input-radio" type="radio" name="gender" value="" />
+                        <input class="input-radio" type="radio" name="gender" value="1" />
                     <div  class="title__gender">男性</div>
-                        <input class="input-radio" type="radio" name="gender" value="" />
+                        <input class="input-radio" type="radio" name="gender" value="2" />
                     <div class="title__gender">女性</div>
                 </div>
             </div>
